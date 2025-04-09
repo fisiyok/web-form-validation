@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+		function validate() {
+			var fullname = document.UserData.fullname.value;
+			var email = document.UserData.email.value;
+			var age = document.UserData.age.value; 
+			var favlanguage = document.UserData.favlanguage.value;
+			var level = document.UserData.level.value;
+
+			
+			var tool = false; 
+			var tools = document.UserData.tools;
+			for(var index = 0; index < tools.length; index++){
+				if(document.UserData.tools[index].checked) {
+					tool = true;
+				}
+			}
+			var valid = false;
+			if (fullname == "") {
+				alert("Full name is required!!!");
+			}
+			else if (email == "") {
+				alert("Email is required!!!");
+			}
+			else if(age == "") {
+				alert("Age is required!!!");
+			}
+			else if (favlanguage == "") {
+				alert("Plese select a favorite language!!!");
+			}
+			else if (level == "") {
+				alert("Plese select a level!!!");
+			}	
+			else if (tool == false) {
+				alert("Please select at least one tool or more!!");
+			}
+			else {
+				valid = true;
+			}
+			return valid;
+		}
+</script>
+<body>
+<form name="UserData" action="next.jsp" method="POST" onsubmit="return validate()">
+Full Name: <input type="text" name="fullname"><br><br>
+Email: <input type="text" name="email"><br><br>
+Age: <input type="number" name="age"><br><br>
+
+Favorite Programming Language:
+<select name="favlanguage">
+
+<option></option>
+<option>Java</option>
+<option>C</option>
+<option>Python</option>
+
+</select><br><br>
+
+Experience Level:<br>
+<input type="radio" name="level" value="Beginner">Beginner
+<input type="radio" name="level" value="Intermediate">Intermediate
+<input type="radio" name="level" value="Expert">Expert
+
+<br><br>Preferred Development Tools:<br>
+<input type= "checkbox" name="tools" value="Git">Git
+<input type= "checkbox" name="tools" value="Docker">Docker
+<input type= "checkbox" name="tools" value="Jenkins">Jenkins
+<input type= "checkbox" name="tools" value="VS Code">VS Code
+<input type= "checkbox" name="tools" value="Eclipce">Eclipse
+<input type= "checkbox" name="tools" value="IntelliJ IDEA">IntelliJ IDEA
+
+<br><br>Subscribe to Newsletter:
+<input type= "checkbox" name="status">
+
+<br><br><input type="submit">
+</form>
+</body>
+</html>
